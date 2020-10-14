@@ -19,7 +19,8 @@ class UserTableSeeder extends Seeder
                 'first_name' => $firstName,
                 'last_name' => $lastName,
                 'email' => $faker->email,
-                'password' => $faker->password
+                'password' => $faker->password,
+                'is_admin' => rand(true,false)
             ];
         }
         \DB::table('users')->insert($users);

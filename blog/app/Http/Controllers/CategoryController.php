@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -9,54 +10,56 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|
+     * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
+        $items = Category::all();
+
+        return view('categories.index',compact('items'));
 
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|
+     * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('categories.create',compact('item'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Category $category)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        if ($category) {
+            return redirect()->route('categories.index', [$category->id])
+                ->with('Категорію створено  успішно');
+        } else {
+            return back()->with('Помилка створення')
+                ->withInput();
+        }
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|
+     * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('categories.edit',compact('category'));
     }
 
     /**
@@ -64,21 +67,30 @@ class CategoryController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Category $category)
     {
-        //
+        return redirect()
+                ->route('categories.edit', $category->id)
+                ->with(['success' => 'Успішно збережено']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        if ($category) {
+            return redirect()
+                ->route('categories.index')
+                ->with(['success' => "Категорія номер[$category->id] видалена"]);
+        } else {
+            return back()->withErrors(['msg' => 'Помилка видалення']);
+        }
+
     }
 }
