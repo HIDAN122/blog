@@ -4,8 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Post
+ * @package App\Models
+ */
 class Post extends Model
 {
+    /**
+     * @var string
+     */
+    protected $table = "posts";
+
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'category_id',
         'user_id',
@@ -34,6 +46,6 @@ class Post extends Model
      */
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class, 'post_id', 'id');
     }
 }

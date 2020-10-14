@@ -4,8 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class User
+ * @package App\Models
+ */
 class User extends Model
 {
+    /**
+     * @var string
+     */
+    protected $table = "users";
+
     /**
      * @var string[]
      */
@@ -21,7 +30,7 @@ class User extends Model
      */
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class,'user_id','id');
     }
 
     /**
@@ -29,7 +38,7 @@ class User extends Model
      */
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(Comment::class,'user_id','id');
     }
 }
 
