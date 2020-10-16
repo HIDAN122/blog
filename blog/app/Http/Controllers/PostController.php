@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -15,11 +16,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
-
-        $items = $user->posts;
-
-        return view('posts.index', compact('items'));
+        $items = Post::all();
+//        $categories = Category::all();
+        $categories = Category::where('parent_id','!=','0')->get();
+        $mainCategories = Category::where('parent_id','==','0')->get();
+        return view('posts.blog_page', compact('items', 'categories','mainCategories'));
     }
 
     /**

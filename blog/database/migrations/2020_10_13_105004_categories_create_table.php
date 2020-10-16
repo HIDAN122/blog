@@ -18,6 +18,7 @@ class CategoriesCreateTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->unique();
+            $table->integer('parent_id')->unsigned();
             $table->timestamps();
         });
     }
