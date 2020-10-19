@@ -7,8 +7,7 @@
                 <div class="col-12 col-md-9">
                     <div class="col-md-6">
 
-                        <h1 class="h3 mb-3 font-weight-normal align-content-center col-form-label">Please sign
-                            up</h1>
+                        <h1 class="h3 mb-3 font-weight-normal align-content-center col-form-label">Please sign up</h1>
                         <label for="firstName" class="sr-only">First Name</label>
                         <input name="first_name" type="text" id="name" class="form-control align-content-center"
                                placeholder="First Name" required=""

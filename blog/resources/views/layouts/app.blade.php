@@ -28,7 +28,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Anonymous</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="{{route('authenticate.index')}}">Sign in</a>
+                    <a class="dropdown-item" href="{{route('profile.index')}}">Sign in</a>
                     <a class="dropdown-item" href={{route('registrations.register.form')}}>Sign up</a>
                 </div>
             </li>

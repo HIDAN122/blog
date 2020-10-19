@@ -11,6 +11,11 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     /**
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * @var string
      */
     protected $table = "users";

@@ -23,11 +23,15 @@ Route::resource('comments','CommentController')->except(['show'],['index'],['cre
 
 Route::get('registrations/index','AuthController@registerForm')->name('registrations.register.form');
 
+Route::get('profile/index','AuthController@authenticateForm')->name('profile.index');
+
 Route::get('registrations/register','AuthController@register')->name('registrations.register');
 
 Route::post('registrations/panel_page','AuthController@index')->name('registrations.post');
 
 Route::get('authenticate/index','AuthController@authenticate')->name('authenticate.index');
+
+
 
 
 

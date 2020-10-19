@@ -24,13 +24,17 @@ class AuthController extends Controller
 
     /**
      * @param RegistrationRequest $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     * @return \Illuminate\Http\RedirectResponse
+     * @return \RedirectResponse|\Illuminate\View\View
      */
     public function register(RegistrationRequest $request)
     {
+        $data = $request->validated();
+        $data['password'] = bcrypt($data['password']);
+        $data['is_admin'] = false;
 
         event(
-           new Registration($request->validated())
+           new Registration($data)
         );
 
         return back()->with('status', Registration::$result);
@@ -42,7 +46,7 @@ class AuthController extends Controller
 
         if(Auth::attempt($items))
         {
-            return redirect()->route('registrations.post');
+            return redirect()->route('profile.index');
         }
     }
 
@@ -51,6 +55,14 @@ class AuthController extends Controller
         $categories = Category::all();
 
         return view('registrations.panel_page',compact('categories'));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function authenticateForm()
+    {
+        return view('authenticate.index');
     }
 
 
