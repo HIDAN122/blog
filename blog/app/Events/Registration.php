@@ -22,14 +22,14 @@ class Registration
     /**
      * @var bool
      */
-    public static $result = false;
+    public static $result = true;
 
     /**
      * Create a new event instance.
      *
      * @param array $params
      */
-    protected function __construct($params)
+    public function __construct($params)
     {
         $this->params = $params;
     }

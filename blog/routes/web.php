@@ -13,16 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get(' ', 'PostController@index' )->name('posts.index');
+Route::get('/','PostController@index')->name('posts');
 
-Route::resource('posts', 'PostController')->except(['show'],['index'])->names('posts');
+Route::resource('posts', 'PostController');
 
-Route::resource('categories','CategoryController')->except(['show']);
+Route::resource('categories','CategoryController');
 
-Route::resource('comments','CommentController')->except(['show'],['index']);
+Route::resource('comments','CommentController')->except(['show'],['index'],['create']);
 
 Route::get('registrations/index','AuthController@registerForm')->name('registrations.register.form');
-Route::post('registrations/register','AuthController@index')->name('registrations.post');
+
+Route::get('registrations/register','AuthController@register')->name('registrations.register');
+
+Route::post('registrations/panel_page','AuthController@index')->name('registrations.post');
+
+Route::get('authenticate/index','AuthController@authenticate')->name('authenticate.index');
 
 
 

@@ -22,6 +22,7 @@ class PostsCreateTable extends Migration
 
 
             $table->string('title');
+            $table->text('short_description');
             $table->text('description');
 
             $table->timestamps();

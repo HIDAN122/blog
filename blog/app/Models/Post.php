@@ -22,7 +22,8 @@ class Post extends Model
         'category_id',
         'user_id',
         'title',
-        'description'
+        'description',
+        'short_description'
     ];
 
     /**

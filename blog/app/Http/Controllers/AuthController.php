@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\Registration;
+use App\Http\Requests\AuthenticateRequest;
 use App\Http\Requests\RegistrationRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -18,9 +19,7 @@ class AuthController extends Controller
      */
     public function registerForm()
     {
-        $mainCategories = Category::where('parent_id','==','0')->get();
-
-        return view('registrations.index',compact('mainCategories'));
+        return view('registrations.index');
     }
 
     /**
@@ -31,9 +30,20 @@ class AuthController extends Controller
     {
 
         event(
-           //new Registration($request->validated())
+           new Registration($request->validated())
         );
+
         return back()->with('status', Registration::$result);
+    }
+
+    public function authenticate(AuthenticateRequest $request)
+    {
+        $items = $request->only('email','password');
+
+        if(Auth::attempt($items))
+        {
+            return redirect()->route('registrations.post');
+        }
     }
 
     public function index()

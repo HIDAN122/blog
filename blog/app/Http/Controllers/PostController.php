@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -17,10 +18,8 @@ class PostController extends Controller
     public function index()
     {
         $items = Post::all();
-//        $categories = Category::all();
-        $categories = Category::where('parent_id','!=','0')->get();
-        $mainCategories = Category::where('parent_id','==','0')->get();
-        return view('posts.blog_page', compact('items', 'categories','mainCategories'));
+
+        return view('posts.blog_page',compact('items'));
     }
 
     /**
@@ -51,6 +50,11 @@ class PostController extends Controller
             return back()->with('Помилка створення')
                 ->withInput();
         }
+    }
+
+    public function show(Post $post)
+    {
+        return view('posts.details',compact('post'));
     }
 
 

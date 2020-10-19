@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \View::share('categories', Category::where('parent_id', 0)->get());
+        \View::share('mainCategories', Category::where('parent_id', 0)->get());
+        \View::share('categories', Category::where('parent_id','!=','0')->get());
     }
 }
