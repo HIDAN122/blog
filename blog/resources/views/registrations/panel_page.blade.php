@@ -1,10 +1,8 @@
 @extends('layouts.panel')
-
-@section('content')
-
+@section('body_style', 'padding-top: 70px;')
+@section('inner')
 
     <h1>Dashboard</h1>
-
     <section class="row text-center placeholders">
         <div class="col-6 col-sm-3 placeholder">
             <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200"
@@ -160,4 +158,5 @@
             </tbody>
         </table>
     </div>
+
 @endsection

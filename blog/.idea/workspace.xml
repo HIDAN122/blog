@@ -170,9 +170,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Laravel-master/test.local1" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="de.espend.idea.laravel.ui.TemplateSettingsForm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -207,7 +207,9 @@
       <workItem from="1603110275742" duration="963000" />
       <workItem from="1603111421454" duration="7184000" />
       <workItem from="1603130745154" duration="4431000" />
-      <workItem from="1603135742018" duration="676000" />
+      <workItem from="1603135742018" duration="920000" />
+      <workItem from="1603182350812" duration="126000" />
+      <workItem from="1603182490922" duration="15219000" />
     </task>
     <servers />
   </component>
@@ -227,26 +229,42 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="782" y="233" width="412" height="638" key="#com.intellij.ide.util.MemberChooser" timestamp="1603184480271">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="782" y="233" width="412" height="638" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1603184480271" />
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603112668466">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603112668466" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603112589042">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603193766445">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1603112589042" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1603193766445" />
     <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1603116734226">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603116734226" />
-    <state x="482" y="187" key="SettingsEditor" timestamp="1602845097475">
+    <state x="482" y="187" key="SettingsEditor" timestamp="1603185148506">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1602845097475" />
-    <state x="684" y="161" width="618" height="783" key="find.popup" timestamp="1603102988742">
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1603185148506" />
+    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1603192940515">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="684" y="161" width="618" height="783" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1603102988742" />
+    <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603192940515" />
+    <state x="603" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603203840709">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="603" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1603203840709" />
+    <state x="83" y="98" width="1710" height="909" key="find.popup" timestamp="1603185444966">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="83" y="98" width="1710" height="909" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1603185444966" />
+    <state x="657" y="253" key="run.anything.popup" timestamp="1603201803791">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1603201803791" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1603134951386">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

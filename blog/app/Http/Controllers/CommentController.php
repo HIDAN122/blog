@@ -36,7 +36,7 @@ class CommentController extends Controller
         $comments = Comment::create($data);
 
         if ($comments) {
-            return redirect()->route('posts.show',  [$comments->id])
+            return redirect()->route('posts.show',  [$data['post_id']])
                 ->with('Comment add successfully');
         } else {
             return back()->withErrors('Error add')

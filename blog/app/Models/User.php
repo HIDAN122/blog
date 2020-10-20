@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Model;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * Class User
@@ -10,6 +11,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class User extends Model
 {
+    use Notifiable;
+
     /**
      * @var bool
      */

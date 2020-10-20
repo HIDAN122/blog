@@ -1,8 +1,15 @@
 @extends('layouts.panel')
 @section('body_style', 'padding-top: 70px;q')
 @section('content')
-    <form action="{{route('registrations.register')}}" class="form-signup">
+
+    <form method="post" action="{{route('registrations.register')}}" class="form-signup">
+        @csrf
         <div class="container">
+            @if(session()->has('status') && session('status'))
+                <div class="alert alert-success">
+                    Success registration! <a href="{{route('authenticate.form')}}">Log in</a>
+                </div>
+            @endif
             <div class="row row-offcanvas row-offcanvas-right">
                 <div class="col-12 col-md-9">
                     <div class="col-md-6">

@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AuthenticateRequest extends FormRequest
@@ -14,7 +13,7 @@ class AuthenticateRequest extends FormRequest
      */
     public function authorize()
     {
-        return Auth::guest();
+        return \Auth::guest();
     }
 
     /**
@@ -26,7 +25,7 @@ class AuthenticateRequest extends FormRequest
     {
         return [
             'email' => 'required|max:20',
-            'password' => 'requires|min:6|max:30'
+            'password' => 'required|min:6|max:30'
         ];
     }
 }

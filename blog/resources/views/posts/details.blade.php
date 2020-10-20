@@ -3,7 +3,6 @@
 @section('body_style', 'padding-top: 70px;q')
 @section('content')
 
-
     <div class="container">
         <div class="row row-offcanvas row-offcanvas-right">
             <div class="col-12 col-md-9">
@@ -41,7 +40,7 @@
                     </div>
                 @endif
 
-                <form method="POST" action="{{route('comments.store')}}">
+            <form method="POST" action="{{route('comments.store')}}">
                     @csrf
                     <input type="hidden" name="post_id" value="{{$post->id}}" />
                     <div class="form-group">

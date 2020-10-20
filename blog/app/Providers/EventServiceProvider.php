@@ -16,6 +16,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         \App\Events\Registration::class => [
+            \App\Listeners\Registration\ConfigureUserListener::class,
             \App\Listeners\Registration\CreateUserListener::class
         ]
     ];

@@ -17,9 +17,17 @@ class PostController extends Controller
      */
     public function index()
     {
-        $items = Post::all();
+        $user = auth()->user();
+        if($user) {
 
-        return view('posts.blog_page',compact('items'));
+            $items = $user->accounts;
+
+            return view('posts.user_posts', compact('items'));
+        }else {
+            $items = Post::all();
+
+            return view('posts.blog_page', compact('items'));
+        }
     }
 
     /**

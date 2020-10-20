@@ -21,15 +21,28 @@ Route::resource('categories','CategoryController');
 
 Route::resource('comments','CommentController')->except(['show'],['index'],['create']);
 
-Route::get('registrations/index','AuthController@registerForm')->name('registrations.register.form');
 
-Route::get('profile/index','AuthController@authenticateForm')->name('profile.index');
+Route::get('registrations/form','AuthController@registerForm')->name('registrations.form');
 
-Route::get('registrations/register','AuthController@register')->name('registrations.register');
+Route::post('registrations/register','AuthController@register')->name('registrations.register');
 
-Route::post('registrations/panel_page','AuthController@index')->name('registrations.post');
+Route::get('registrations/panel_page','AuthController@index')->name('registrations.panel');
 
-Route::get('authenticate/index','AuthController@authenticate')->name('authenticate.index');
+
+
+Route::get('authenticate/form','AuthController@authenticateForm')->name('authenticate.form');
+
+Route::post('authenticate/index','AuthController@authenticate')->name('authenticate.index');
+
+Route::group(['as' => 'profile.', 'middleware' => ['auth']], function (\Illuminate\Routing\Router $router) {
+
+    $router->get('/profile/panel_page','AuthController@profile')->name('home');
+});
+
+Route::get('/logout','AuthController@logout')->name('logout');
+
+
+
 
 
 
