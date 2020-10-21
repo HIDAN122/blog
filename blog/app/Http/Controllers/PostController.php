@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
@@ -20,12 +21,11 @@ class PostController extends Controller
         $user = auth()->user();
         if($user) {
 
-            $items = $user->accounts;
+            $items = $user->posts;
 
             return view('posts.user_posts', compact('items'));
         }else {
             $items = Post::all();
-
             return view('posts.blog_page', compact('items'));
         }
     }
@@ -47,15 +47,19 @@ class PostController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Post $post)
+    public function store(PostRequest $request)
     {
-        $post['user_id'] = auth()->user()->id;
+        $data = $request->validated();
+
+        $data['user_id'] = auth()->user()->id;
+
+        $post = Post::create($data);
 
         if ($post) {
-            return redirect()->route('posts.index', [$post->id])
-                ->with('Пост створено успішно');
+            return redirect()->route('posts.index')
+                ->with('Post create successfully');
         } else {
-            return back()->with('Помилка створення')
+            return back()->with('Error create')
                 ->withInput();
         }
     }
@@ -79,17 +83,21 @@ class PostController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource sddsin storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param Post $post
+     * @param PostRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Post $post)
+    public function update(Post $post, PostRequest $request)
     {
+        if ($post->update($request->validated())) {
+
             return redirect()
-                ->route('posts.edit', $post->id)
-                ->with(['success' => 'Успішно збережено']);
+                ->route('posts.index')
+                ->with(['success' => 'Save success']);
+        }
+
     }
 
     /**
@@ -100,12 +108,21 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        if ($post) {
+        $delPost = $post->delete();
+
+        if ($delPost) {
             return redirect()
                 ->route('posts.index')
-                ->with(['success' => "Пост номер [$post->id] видалений"]);
+                ->with(['success' => "Post number [$post->id] has been deleted"]);
         } else {
-            return back()->withErrors(['msg' => 'Помилка видалення']);
+            return back()->withErrors(['error' => 'Error delete']);
         }
+    }
+
+    public function showAllPosts()
+    {
+        $posts = Post::all();
+
+        return view('posts.all_posts',compact('posts'));
     }
 }

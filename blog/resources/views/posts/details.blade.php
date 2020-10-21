@@ -28,6 +28,7 @@
                                 {{$comment->message}}
                             </div>
                         </li>
+                    </ul>
                 @endforeach
 
                 @if ($errors->any())

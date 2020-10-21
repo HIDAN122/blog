@@ -3,13 +3,13 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+            <nav class="col-3 hidden-xs-down bg-faded sidebar">
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('posts.index')}}">My post</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Analytics</a>
+                        <a class="nav-link" href="{{route('comments.index')}}">My comments</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Export</a>
@@ -43,10 +43,8 @@
                     </li>
                 </ul>
             </nav>
-            <div>
-                <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-                    @yield('inner')
-                </main>
+            <div class="col-9 pt-3">
+                @yield('inner')
             </div>
         </div>
     </div>

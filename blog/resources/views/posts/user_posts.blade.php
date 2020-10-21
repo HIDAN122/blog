@@ -1,15 +1,36 @@
-@extends('layouts.app')
+@extends('layouts.panel')
 
-@section('body_style', 'padding-top: 70px;')
-@section('content')
-    <div class="row">
-        @foreach($items as $post)
-            <div class="col-6 col-lg-4">
-                <h2>{{$post->title}}</h2>
-                <p>{{$post->short_description}}</p>
-                <p><a class="btn btn-secondary" href="{{route('posts.show', ['post' => $post->id])}}" role="button">View details &raquo;</a></p>
-            </div><!--/span-->
-        @endforeach
-    </div><!--/row-->
+@section('body_style', 'padding-top: 59px;')
+@section('inner')
+    @if($items->count())
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Short description</th>
+                <th scope="col">Description</th>
+                <th scope="col">Edit</th>
 
+            </tr>
+            </thead>
+            @foreach($items as $post)
+                <tbody>
+                <tr>
+                    <th scope="row">{{$post->id}}</th>
+                    <td>{{$post->title}}</td>
+                    <td>{{$post->short_description}}</td>
+                    <td>{{$post->description}}</td>
+                    <td><a role="button" href="{{route('posts.edit',[$post->id])}}">Edit</a></td>
+                </tr>
+                </tbody>
+            @endforeach
+        </table>
+    @else
+        <div class="col-12">
+            <div class="alert alert-success">
+                You have no posts, please create one<a href="{{route('posts.create')}}">Create post</a>
+            </div>
+        </div>
+    @endif
 @endsection

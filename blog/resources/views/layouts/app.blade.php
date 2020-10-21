@@ -19,7 +19,7 @@
             aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href={{route('posts.index')}}>BlogMe</a>
+    <a class="navbar-brand" href={{route('all.posts')}}>BlogMe</a>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             @auth

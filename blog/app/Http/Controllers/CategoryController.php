@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class   CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,6 +20,13 @@ class CategoryController extends Controller
 
         return view('categories.index',compact('items'));
 
+    }
+
+    public function getPostByCategoryId(Category $id)
+    {
+        $items = Post::query()->where('category_id', '=', $id->id)->paginate();
+
+        return view('posts.user_posts',compact('items'));
     }
 
     /**

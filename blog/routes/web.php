@@ -19,7 +19,7 @@ Route::resource('posts', 'PostController');
 
 Route::resource('categories','CategoryController');
 
-Route::resource('comments','CommentController')->except(['show'],['index'],['create']);
+Route::resource('comments','CommentController')->except(['show'],['create']);
 
 
 Route::get('registrations/form','AuthController@registerForm')->name('registrations.form');
@@ -29,6 +29,7 @@ Route::post('registrations/register','AuthController@register')->name('registrat
 Route::get('registrations/panel_page','AuthController@index')->name('registrations.panel');
 
 
+Route::get('/posts/cat/{id}', 'CategoryController@getPostByCategoryId');
 
 Route::get('authenticate/form','AuthController@authenticateForm')->name('authenticate.form');
 
@@ -40,6 +41,8 @@ Route::group(['as' => 'profile.', 'middleware' => ['auth']], function (\Illumina
 });
 
 Route::get('/logout','AuthController@logout')->name('logout');
+
+Route::get('/all_posts','PostController@showAllPosts')->name('all.posts');
 
 
 

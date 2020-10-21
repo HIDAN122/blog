@@ -17,10 +17,13 @@
       <change afterPath="$PROJECT_DIR$/public/html/panel.layout.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/html/panel.page.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/html/qwe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/comments/index.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/layouts/blog.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/layouts/panel.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/posts/all_posts.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/posts/blog_page.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/posts/details.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/posts/user_posts.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/registrations/index.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/registrations/panel_page.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
@@ -170,7 +173,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Laravel-master/test.local1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -209,7 +212,12 @@
       <workItem from="1603130745154" duration="4431000" />
       <workItem from="1603135742018" duration="920000" />
       <workItem from="1603182350812" duration="126000" />
-      <workItem from="1603182490922" duration="15219000" />
+      <workItem from="1603182490922" duration="18103000" />
+      <workItem from="1603210429393" duration="972000" />
+      <workItem from="1603267580226" duration="6156000" />
+      <workItem from="1603278647873" duration="747000" />
+      <workItem from="1603279426606" duration="7823000" />
+      <workItem from="1603287997956" duration="7212000" />
     </task>
     <servers />
   </component>
@@ -233,18 +241,18 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="782" y="233" width="412" height="638" key="#com.intellij.ide.util.MemberChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1603184480271" />
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603112668466">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1603293200301">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603112668466" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603193766445">
+    <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603293200301" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603287938682">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1603193766445" />
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1603116734226">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1603287938682" />
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1603282913235">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603116734226" />
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603282913235" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1603185148506">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -253,21 +261,21 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="167" y="125" width="1653" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603192940515" />
-    <state x="603" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603203840709">
+    <state x="603" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603211275752">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="603" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1603203840709" />
+    <state x="603" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1603211275752" />
     <state x="83" y="98" width="1710" height="909" key="find.popup" timestamp="1603185444966">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="83" y="98" width="1710" height="909" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1603185444966" />
-    <state x="657" y="253" key="run.anything.popup" timestamp="1603201803791">
+    <state x="657" y="253" key="run.anything.popup" timestamp="1603211296745">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1603201803791" />
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1603134951386">
+    <state x="657" y="253" key="run.anything.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1603211296745" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1603280983272">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1603134951386" />
+    <state x="656" y="257" width="672" height="678" key="search.everywhere.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1603280983272" />
   </component>
 </project>

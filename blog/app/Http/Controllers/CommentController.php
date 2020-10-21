@@ -10,6 +10,18 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    public function index()
+    {
+        $user = auth()->user();
+
+
+        $posts = $user->posts;
+
+        $comments = $user->comments;
+
+        return view('comments.index',compact('comments','posts'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +36,7 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(CommentRequest $request)
@@ -36,7 +48,7 @@ class CommentController extends Controller
         $comments = Comment::create($data);
 
         if ($comments) {
-            return redirect()->route('posts.show',  [$data['post_id']])
+            return redirect()->route('posts.show', [$data['post_id']])
                 ->with('Comment add successfully');
         } else {
             return back()->withErrors('Error add')
@@ -47,7 +59,7 @@ class CommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -58,8 +70,8 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -70,7 +82,7 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
