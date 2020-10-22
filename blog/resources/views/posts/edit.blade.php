@@ -29,13 +29,13 @@
                     required>
                 @foreach($categories as $category)
                     <option value="{{$category->id}}" @if($category->id == $post->category_id) selected @endif>
-                        {{$category->slug}}
+                        {{$category->name}}
                     </option>
                 @endforeach
             </select>
             <br>
             <button type="submit" class="btn btn-primary">Save</button>
-            <a type="button" class="btn btn-danger" href="{{route('posts.destroy',[$post->id])}}">Delete</a>
+            <a class="btn btn-danger" href="{{route('posts.destroy',[$post->id])}}">Delete</a>
         </form>
 
 @endsection

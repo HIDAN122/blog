@@ -22,11 +22,17 @@ class   CategoryController extends Controller
 
     }
 
+    /**
+     * @param Category $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getPostByCategoryId(Category $id)
     {
-        $items = Post::query()->where('category_id', '=', $id->id)->paginate();
-
-        return view('posts.user_posts',compact('items'));
+        $posts = Post::query()->where('category_id', '=', $id->id)->paginate();
+        return view('posts.all_posts',[
+            'posts' => $posts,
+            'cat_root' => $id
+        ]);
     }
 
     /**

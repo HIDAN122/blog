@@ -43,8 +43,9 @@
                 </li>
             @endauth
             @foreach($mainCategories as $mainCategory)
-                <li class="nav-item">
-                    <a class="nav-link" href="{{$mainCategory->id}}">{{$mainCategory->name}}</a>
+                <li class="nav-item {{isset($cat_root) ? ($cat_root->isParent() ? ($cat_root->id == $mainCategory->id ? 'active':'') : ($cat_root->parent_id == $mainCategory->id ? 'active':'')) : ''}}">
+                    <a href="{{route('category.post',[$mainCategory->id])}}"
+                       class="nav-link" >{{$mainCategory->name}}</a>
                 </li>
             @endforeach
 
@@ -70,5 +71,9 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 <script src="https://v4-alpha.getbootstrap.com/examples/offcanvas/offcanvas.js"></script>
+<script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('description');
+</script>
 </body>
 </html>

@@ -29,7 +29,7 @@ Route::post('registrations/register','AuthController@register')->name('registrat
 Route::get('registrations/panel_page','AuthController@index')->name('registrations.panel');
 
 
-Route::get('/posts/cat/{id}', 'CategoryController@getPostByCategoryId');
+Route::get('/posts/cat/{id}', 'CategoryController@getPostByCategoryId')->name('category.post');
 
 Route::get('authenticate/form','AuthController@authenticateForm')->name('authenticate.form');
 

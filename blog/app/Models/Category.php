@@ -31,4 +31,20 @@ class Category extends Model
     {
         return $this->hasMany(Post::class,'category_id','id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function childs()
+    {
+        return $this->hasMany(static::class, 'parent_id', 'id');
+    }
+
+    /**
+     * @return bool
+     */
+    public function isParent()
+    {
+        return !!$this->childs()->count();
+    }
 }

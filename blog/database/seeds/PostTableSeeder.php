@@ -19,8 +19,8 @@ class PostTableSeeder extends Seeder
         $count = rand(40, 70);
         for ($i = 0; $i <= $count; $i++) {
             $posts[] = [
-                'category_id' => rand(1, 20),
-                'user_id' => rand(1, 50),
+                'category_id' => \App\Models\Category::inRandomOrder()->first()->id,
+                'user_id' => App\Models\User::inRandomOrder()->first()->id,
                 'title' => $title,
                 'short_description' => $shortDescription,
                 'description' => $description,

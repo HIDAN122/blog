@@ -108,7 +108,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $delPost = $post->delete();
+        $delPost = $post->destroy();
 
         if ($delPost) {
             return redirect()

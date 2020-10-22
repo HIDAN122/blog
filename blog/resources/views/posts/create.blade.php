@@ -23,7 +23,7 @@
                 required>
             @foreach($categories as $category)
                 <option value="{{$category->id}}">
-                    {{$category->slug}}
+                    {{$category->name}}
                 </option>
             @endforeach
         </select>

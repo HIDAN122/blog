@@ -20,12 +20,17 @@
                     <th scope="row">{{$post->id}}</th>
                     <td>{{$post->title}}</td>
                     <td>{{$post->short_description}}</td>
-                    <td>{{$post->description}}</td>
+                    <td>{!! $post->description !!}</td>
                     <td><a role="button" href="{{route('posts.edit',[$post->id])}}">Edit</a></td>
                 </tr>
                 </tbody>
             @endforeach
         </table>
+        <div class="col-12">
+               <a class="btn btn-primary" href="{{route('posts.create')}}">Create post</a>
+            </div>
+        </div>
+
     @else
         <div class="col-12">
             <div class="alert alert-success">
