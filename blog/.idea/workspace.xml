@@ -17,6 +17,7 @@
       <change afterPath="$PROJECT_DIR$/public/html/panel.layout.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/html/panel.page.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/html/qwe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/comments/edit.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/comments/index.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/layouts/blog.blade.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/views/layouts/panel.blade.php" afterDir="false" />
@@ -173,7 +174,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog-main/blog_v3" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -218,7 +219,9 @@
       <workItem from="1603278647873" duration="747000" />
       <workItem from="1603279426606" duration="7823000" />
       <workItem from="1603287997956" duration="7429000" />
-      <workItem from="1603358682376" duration="19474000" />
+      <workItem from="1603358682376" duration="20639000" />
+      <workItem from="1603392092264" duration="9389000" />
+      <workItem from="1603440968506" duration="18190000" />
     </task>
     <servers />
   </component>
@@ -246,14 +249,14 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603293200301" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603287938682">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603400908923">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1603287938682" />
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1603282913235">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1603400908923" />
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1603397800647">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603282913235" />
+    <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603397800647" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1603185148506">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +25,14 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:40',
-            'short_description' => 'required|max:20',
-            'description' => 'required',
-            'category_id' => 'required|int|exists:categories,id'
+            'name' => 'required|max:10',
+            'parent_id' => [
+                function ($attribute, $value, $fail) {
+                    if ($value != 0 && !Category::find($value)) {
+                        $fail($attribute, 'is invalid parent category');
+                    }
+                },
+            ],
         ];
     }
 }

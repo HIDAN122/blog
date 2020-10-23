@@ -12,14 +12,20 @@ class CommentController extends Controller
 {
     public function index()
     {
+
         $user = auth()->user();
 
+        if ($user['is_admin'] == 1) {
+            $comments = Comment::all();
 
-        $posts = $user->posts;
+            return view('comments.index', compact('comments','user'));
+        } else {
 
-        $comments = $user->comments;
+            $comments = $user->comments;
 
-        return view('comments.index',compact('comments','posts'));
+            return view('comments.index', compact('comments','user'));
+        }
+
     }
 
     /**
@@ -60,33 +66,56 @@ class CommentController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(Comment $comment)
     {
-        //
+        $user = auth()->user();
+
+        if($user['is_admin'] == 1){
+            return view('comments.edit',compact('comment'));
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Comment $comment
+     * @param CommentRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Comment $comment, CommentRequest $request)
     {
-        //
+        $user = auth()->user();
+        if($user['is_admin'] == 1) {
+            if ($comment->update($request->validated())) {
+
+                return redirect()
+                    ->route('comments.index')
+                    ->with(['success' => 'Save success']);
+            }
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Comment $comment)
     {
-        //
+        $user = auth()->user();
+
+        if($user['is_admin'] == 1 ){
+            $delComment = $comment->destroy();
+            if ($delComment) {
+                return redirect()
+                    ->route('comments.index')
+                    ->with(['success' => "Post number [$delComment->id] has been deleted"]);
+            } else {
+                return back()->withErrors(['error' => 'Error delete']);
+            }
+        }
     }
 }

@@ -20,7 +20,7 @@ class UserTableSeeder extends Seeder
                 'last_name' => $lastName,
                 'email' => $faker->email,
                 'password' => $faker->password,
-                'is_admin' => rand(true,false)
+                'is_admin' => 0
             ];
         }
         \DB::table('users')->insert($users);

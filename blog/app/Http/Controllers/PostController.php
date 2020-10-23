@@ -19,12 +19,16 @@ class PostController extends Controller
     public function index()
     {
         $user = auth()->user();
-        if($user) {
-
-            $items = $user->posts;
-
+        if ($user['is_admin'] == 1) {
+            $items = Post::all();
             return view('posts.user_posts', compact('items'));
-        }else {
+        }
+        if ($user) {
+            $items = $user->posts;
+            return view('posts.user_posts', compact('items'));
+
+
+        } else {
             $items = Post::all();
             return view('posts.blog_page', compact('items'));
         }
@@ -66,7 +70,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts.details',compact('post'));
+        return view('posts.details', compact('post'));
     }
 
 
@@ -83,7 +87,7 @@ class PostController extends Controller
     }
 
     /**
-     * Update the specified resource sddsin storage.
+     * Update the specified resourcx`   e sddsin storage.
      *
      * @param Post $post
      * @param PostRequest $request
@@ -108,7 +112,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $delPost = $post->destroy();
+        $delPost = Post::destroy($post);
 
         if ($delPost) {
             return redirect()
@@ -123,6 +127,6 @@ class PostController extends Controller
     {
         $posts = Post::all();
 
-        return view('posts.all_posts',compact('posts'));
+        return view('posts.all_posts', compact('posts'));
     }
 }

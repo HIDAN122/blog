@@ -1,6 +1,5 @@
 @extends('layouts.panel')
 
-@section('body_style', 'padding-top: 70px;')
 @section('inner')
     @if($comments->count())
         @foreach($comments as $comment)
@@ -12,9 +11,15 @@
                         {{$comment->message}}
                     </div>
 
-
                 </li>
             </ul>
+            <div class="media-body">
+                <a class="btn btn-secondary" href="{{route('posts.show', [$comment->post['id']])}}" role="button">View
+                    this post &raquo;</a>
+                @if(\Auth::user()->is_admin == 1)
+                    <a role="button" href="{{route('comments.edit',[$comment->id])}}">Edit</a>
+                @endif
+            </div>
         @endforeach
     @else
         <div class="col-6 col-lg-4">

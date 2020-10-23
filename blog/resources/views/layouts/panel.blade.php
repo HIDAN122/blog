@@ -1,19 +1,21 @@
 @extends('layouts.app')
-
+@section('body_style', 'padding-top: 59px;')
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <nav class="col-3 hidden-xs-down bg-faded sidebar">
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('posts.index')}}">My post</a>
+                        <a class="nav-link" href="{{route('posts.index')}}">Posts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('comments.index')}}">My comments</a>
+                        <a class="nav-link" href="{{route('comments.index')}}">Comments</a>
                     </li>
+                    @if((auth()->check() && auth()->user()->is_admin == 1))
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Export</a>
+                        <a class="nav-link" href="{{route('categories.index')}}">Categories</a>
                     </li>
+                    @endif
                 </ul>
 
                 <ul class="nav nav-pills flex-column">

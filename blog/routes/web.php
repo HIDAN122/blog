@@ -17,7 +17,7 @@ Route::get('/','PostController@index')->name('posts');
 
 Route::resource('posts', 'PostController');
 
-Route::resource('categories','CategoryController');
+Route::resource('categories','CategoryController')->except(['show']);
 
 Route::resource('comments','CommentController')->except(['show'],['create']);
 

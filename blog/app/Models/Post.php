@@ -49,4 +49,12 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class, 'post_id', 'id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function comment()
+    {
+        return $this->belongsTo(Comment::class,'id','post_id');
+    }
 }

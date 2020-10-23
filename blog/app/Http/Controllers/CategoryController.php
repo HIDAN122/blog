@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -16,10 +17,9 @@ class   CategoryController extends Controller
      */
     public function index()
     {
-        $items = Category::all();
+           $categories = Category::all();
 
-        return view('categories.index',compact('items'));
-
+            return view('categories.index', compact('categories'));
     }
 
     /**
@@ -29,7 +29,7 @@ class   CategoryController extends Controller
     public function getPostByCategoryId(Category $id)
     {
         $posts = Post::query()->where('category_id', '=', $id->id)->paginate();
-        return view('posts.all_posts',[
+        return view('posts.all_posts', [
             'posts' => $posts,
             'cat_root' => $id
         ]);
@@ -43,13 +43,13 @@ class   CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create',compact('item'));
+        return view('categories.create', compact('item'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Category $category)
@@ -67,38 +67,40 @@ class   CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|
      * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
     public function edit(Category $category)
     {
-        return view('categories.edit',compact('category'));
+        return view('categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param Category $category
+     * @param CategoryRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Category $category)
+    public function update(Category $category,CategoryRequest $request)
     {
+        if($category->update($request->validated()))
         return redirect()
-                ->route('categories.edit', $category->id)
-                ->with(['success' => 'Успішно збережено']);
+            ->route('categories.index')
+            ->with(['success' => 'Успішно збережено']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Category $category)
     {
-        if ($category) {
+        $delCategory = Category::destroy($category);
+        if ($delCategory) {
             return redirect()
                 ->route('categories.index')
                 ->with(['success' => "Категорія номер[$category->id] видалена"]);

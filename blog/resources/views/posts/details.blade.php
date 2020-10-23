@@ -14,7 +14,7 @@
                     <p>{{$post->short_description}}</p>
                 </div>
                 <div class="align-content-center">
-                    <p>{{$post->description}}</p>
+                    <p>{!!$post->description!!}</p>
                 </div>
                 <div>
                     <h3>Comments</h3>

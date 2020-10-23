@@ -40,4 +40,12 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function post()
+    {
+        return $this->hasOne(Post::class,'id','post_id');
+    }
 }
