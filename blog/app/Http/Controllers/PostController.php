@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class PostController extends Controller
 {
@@ -20,14 +21,13 @@ class PostController extends Controller
     {
         $user = auth()->user();
         if ($user['is_admin'] == 1) {
-            $items = Post::all();
+            $items = Post::paginate(15);
             return view('posts.user_posts', compact('items'));
         }
         if ($user) {
-            $items = $user->posts;
+            $items = $user->posts()->paginate(10);
+
             return view('posts.user_posts', compact('items'));
-
-
         } else {
             $items = Post::all();
             return view('posts.blog_page', compact('items'));
@@ -87,8 +87,6 @@ class PostController extends Controller
     }
 
     /**
-     * Update the specified resourcx`   e sddsin storage.
-     *
      * @param Post $post
      * @param PostRequest $request
      * @return \Illuminate\Http\RedirectResponse
@@ -107,25 +105,21 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Post $post
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Post $post)
     {
-        $delPost = Post::destroy($post);
-
-        if ($delPost) {
-            return redirect()
-                ->route('posts.index')
-                ->with(['success' => "Post number [$post->id] has been deleted"]);
+        if ($post->delete()) {
+            return true;
         } else {
-            return back()->withErrors(['error' => 'Error delete']);
+            return false;
         }
     }
 
     public function showAllPosts()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(10);
 
         return view('posts.all_posts', compact('posts'));
     }

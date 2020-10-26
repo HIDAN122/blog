@@ -21,6 +21,12 @@
                 @endif
             </div>
         @endforeach
+        @if($comments->total() > $comments->count())
+            <br>
+            <div class="row justify-content-center">
+                            {{$comments->links()}}
+            </div>
+        @endif
     @else
         <div class="col-6 col-lg-4">
             <div class="alert alert-success">

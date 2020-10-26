@@ -28,10 +28,17 @@
                 </tbody>
             @endforeach
         </table>
+        @if($items->total() > $items->count())
+            <br>
+            <div class="row justify-content-center">
+                            {{$items->links()}}
+            </div>
+        @endif
         <div class="col-12">
                <a class="btn btn-primary" href="{{route('posts.create')}}">Create post</a>
             </div>
         </div>
+
 
     @else
         <div class="col-12">

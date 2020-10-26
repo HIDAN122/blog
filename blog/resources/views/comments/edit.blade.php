@@ -18,9 +18,12 @@
             </div>
             <br>
             <button type="submit" class="btn btn-primary">Save</button>
-            <a class="btn btn-danger" href="{{route('comments.destroy',[$comment->id])}}">Delete</a>
         </form>
-
+        <form method="post" action="{{route('comments.destroy',[$comment->id])}}">
+            @method('DELETE')
+            @csrf
+        <button class="btn btn-danger">Delete</button>
+        </form>
 
 @endsection
 

@@ -16,12 +16,12 @@ class CommentController extends Controller
         $user = auth()->user();
 
         if ($user['is_admin'] == 1) {
-            $comments = Comment::all();
+            $comments = Comment::paginate(15);
 
             return view('comments.index', compact('comments','user'));
         } else {
 
-            $comments = $user->comments;
+            $comments = $user->comments()->paginate(10);
 
             return view('comments.index', compact('comments','user'));
         }
@@ -108,7 +108,7 @@ class CommentController extends Controller
         $user = auth()->user();
 
         if($user['is_admin'] == 1 ){
-            $delComment = $comment->destroy();
+            $delComment = $this->destroy($comment);
             if ($delComment) {
                 return redirect()
                     ->route('comments.index')

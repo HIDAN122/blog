@@ -15,12 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','PostController@index')->name('posts');
 
-Route::resource('posts', 'PostController');
-
 Route::resource('categories','CategoryController')->except(['show']);
 
 Route::resource('comments','CommentController')->except(['show'],['create']);
-
 
 Route::get('registrations/form','AuthController@registerForm')->name('registrations.form');
 
@@ -44,9 +41,7 @@ Route::get('/logout','AuthController@logout')->name('logout');
 
 Route::get('/all_posts','PostController@showAllPosts')->name('all.posts');
 
-
-
-
+Route::resource('posts','PostController');
 
 
 

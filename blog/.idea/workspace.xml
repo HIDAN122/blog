@@ -174,7 +174,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog-main/blog_v3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Laravel-master/test.local1" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -221,7 +221,9 @@
       <workItem from="1603287997956" duration="7429000" />
       <workItem from="1603358682376" duration="20639000" />
       <workItem from="1603392092264" duration="9389000" />
-      <workItem from="1603440968506" duration="18190000" />
+      <workItem from="1603440968506" duration="18411000" />
+      <workItem from="1603704569032" duration="4350000" />
+      <workItem from="1603721087098" duration="5808000" />
     </task>
     <servers />
   </component>
@@ -249,10 +251,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="726" y="310" width="524" height="484" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1603293200301" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603400908923">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603724050648">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1603400908923" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1603724050648" />
     <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1603397800647">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -269,10 +271,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="603" y="166" width="770" height="773" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1603211275752" />
-    <state x="83" y="98" width="1710" height="909" key="find.popup" timestamp="1603373357250">
+    <state x="83" y="98" width="1710" height="909" key="find.popup" timestamp="1603709561404">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="83" y="98" width="1710" height="909" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1603373357250" />
+    <state x="83" y="98" width="1710" height="909" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1603709561404" />
     <state x="657" y="253" key="run.anything.popup" timestamp="1603369752707">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

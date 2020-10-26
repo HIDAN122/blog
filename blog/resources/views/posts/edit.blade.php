@@ -6,7 +6,6 @@
         <form method="post" action="{{route('posts.update',[$post->id])}}">
             @method('PUT')
             @csrf
-            @endif
             <div class="form-group">
                 <label for="title">Title</label>
                 <input value="{{$post->title}}" type="text" class="form-control" id="title" name="title">
@@ -35,8 +34,11 @@
             </select>
             <br>
             <button type="submit" class="btn btn-primary">Save</button>
-            <a class="btn btn-danger" href="{{route('posts.destroy',[$post->id])}}">Delete</a>
         </form>
+        <br>
+        <a class="delete-button btn btn-danger" data-title='Delete post "{{$post->title}}"?' to="{{route('posts.index')}}" href="{{route('posts.destroy',[$post->id])}}">Delete</a>
 
+
+    @endif
 @endsection
 

@@ -10,4 +10,16 @@
             </div><!--/span-->
         @endforeach
     </div><!--/row-->
+    @if($posts->total() > $posts->count())
+        <br>
+        <div class="row justify-content-center">
+            <div class="clo-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{$posts->links()}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection

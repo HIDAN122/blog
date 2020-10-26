@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="../../favicon.ico">
     <title>BlogMe</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/offcanvas/">
@@ -72,6 +73,7 @@
 <script src="https://v4-alpha.getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
 <script src="https://v4-alpha.getbootstrap.com/examples/offcanvas/offcanvas.js"></script>
 <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+<script src="{{asset('js/app.js')}}"></script>
 <script>
     CKEDITOR.replace('description');
 </script>
