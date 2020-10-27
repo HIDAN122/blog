@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentEditRequest;
 use App\Http\Requests\CommentRequest;
 use App\Models\Account;
 use App\Models\Comment;
@@ -16,14 +17,14 @@ class CommentController extends Controller
         $user = auth()->user();
 
         if ($user['is_admin'] == 1) {
-            $comments = Comment::paginate(15);
+            $comments = Comment::paginate(5);
 
-            return view('comments.index', compact('comments','user'));
+            return view('comments.index', compact('comments', 'user'));
         } else {
 
             $comments = $user->comments()->paginate(10);
 
-            return view('comments.index', compact('comments','user'));
+            return view('comments.index', compact('comments', 'user'));
         }
 
     }
@@ -70,11 +71,9 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        $user = auth()->user();
 
-        if($user['is_admin'] == 1){
-            return view('comments.edit',compact('comment'));
-        }
+            return view('comments.edit', compact('comment'));
+
     }
 
     /**
@@ -84,15 +83,13 @@ class CommentController extends Controller
      * @param CommentRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Comment $comment, CommentRequest $request)
+    public function update(Comment $comment, CommentEditRequest $request)
     {
         $user = auth()->user();
-        if($user['is_admin'] == 1) {
+        if ($user) {
             if ($comment->update($request->validated())) {
-
                 return redirect()
-                    ->route('comments.index')
-                    ->with(['success' => 'Save success']);
+                    ->route('comments.index');
             }
         }
     }
@@ -100,22 +97,22 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Comment $comment
+     * @return bool
+     * @throws \Exception
      */
     public function destroy(Comment $comment)
     {
         $user = auth()->user();
 
-        if($user['is_admin'] == 1 ){
-            $delComment = $this->destroy($comment);
-            if ($delComment) {
-                return redirect()
-                    ->route('comments.index')
-                    ->with(['success' => "Post number [$delComment->id] has been deleted"]);
+        if ($user) {
+            if ($comment->delete()) {
+                return true;
             } else {
-                return back()->withErrors(['error' => 'Error delete']);
+                return false;
             }
         }
     }
+
+
 }

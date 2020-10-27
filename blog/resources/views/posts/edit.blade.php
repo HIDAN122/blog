@@ -36,8 +36,6 @@
             <button type="submit" class="btn btn-primary">Save</button>
         </form>
         <br>
-        <a class="delete-button btn btn-danger" data-title='Delete post "{{$post->title}}"?' to="{{route('posts.index')}}" href="{{route('posts.destroy',[$post->id])}}">Delete</a>
-
 
     @endif
 @endsection

@@ -12,6 +12,7 @@
                 <th scope="col">Created</th>
                 <th scope="col">Updated</th>
                 <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
 
             </tr>
             </thead>
@@ -23,7 +24,10 @@
                     <td>{{$post->short_description}}</td>
                     <td>{{$post->created_at}}</td>
                     <td>{{ $post->updated_at }}</td>
-                    <td><a role="button" href="{{route('posts.edit',[$post->id])}}">Edit</a></td>
+                    <td><a role="button" class="btn btn-outline-primary" href="{{route('posts.edit',[$post->id])}}">Edit</a></td>
+                    <td><a class="delete-button btn btn-outline-danger" data-title='Delete post "{{$post->title}}"?'
+                           to="{{route('posts.index')}}" href="{{route('posts.destroy',[$post->id])}}">Delete</a>
+                    </td>
                 </tr>
                 </tbody>
             @endforeach
@@ -43,7 +47,7 @@
     @else
         <div class="col-12">
             <div class="alert alert-success">
-                You have no posts, please create one<a href="{{route('posts.create')}}">Create post</a>
+                You have no posts, please create one <a href="{{route('posts.create')}}">Create post</a>
             </div>
         </div>
     @endif

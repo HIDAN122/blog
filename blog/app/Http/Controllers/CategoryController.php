@@ -43,7 +43,7 @@ class   CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create', compact('item'));
+        return view('categories.create');
     }
 
     /**
@@ -52,15 +52,15 @@ class   CategoryController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Category $category)
+    public function store(CategoryRequest $request)
     {
+        $data = $request->validated();
+
+        $category = Category::create($data);
 
         if ($category) {
-            return redirect()->route('categories.index', [$category->id])
-                ->with('Категорію створено  успішно');
-        } else {
-            return back()->with('Помилка створення')
-                ->withInput();
+            return redirect()->route('categories.index')
+                ->with('Category create successfully');
         }
     }
 
@@ -94,19 +94,16 @@ class   CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Category $category
+     * @return bool
+     * @throws \Exception
      */
     public function destroy(Category $category)
     {
-        $delCategory = Category::destroy($category);
-        if ($delCategory) {
-            return redirect()
-                ->route('categories.index')
-                ->with(['success' => "Категорія номер[$category->id] видалена"]);
+        if ($category->delete()) {
+            return true;
         } else {
-            return back()->withErrors(['msg' => 'Помилка видалення']);
+            return false;
         }
-
     }
 }

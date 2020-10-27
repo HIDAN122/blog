@@ -17,7 +17,12 @@
                 <a class="btn btn-secondary" href="{{route('posts.show', [$comment->post['id']])}}" role="button">View
                     this post &raquo;</a>
                 @if(\Auth::user()->is_admin == 1)
-                    <a role="button" href="{{route('comments.edit',[$comment->id])}}">Edit</a>
+                    <a class="delete-button btn btn-outline-danger" data-title='Delete comment "{{$comment->subject}}"?'
+                       to="{{route('comments.index')}}" href="{{route('comments.destroy',[$comment->id])}}">Delete</a>
+                    <a role="button" class="btn btn-outline-primary" href="{{route('comments.edit',[$comment->id])}}">Edit</a>
+                @else
+                    <a class="delete-button btn btn-outline-danger" data-title='Delete comment "{{$comment->subject}}"?'
+                       to="{{route('comments.index')}}" href="{{route('comments.destroy',[$comment->id])}}">Delete</a>
                 @endif
             </div>
         @endforeach

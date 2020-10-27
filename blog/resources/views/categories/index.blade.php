@@ -11,6 +11,7 @@
             <th scope="col">Created</th>
             <th scope="col">Updated</th>
             <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
 
         </tr>
         </thead>
@@ -23,7 +24,10 @@
                     <td>{{$category->slug}}</td>
                     <td>{{$category->created_at}}</td>
                     <td>{{$category->updated_at}}</td>
-                    <td><a role="button" href="{{route('categories.edit',[$category->id])}}">Edit</a></td>
+                    <td><a role="button" class="btn btn-outline-primary" href="{{route('categories.edit',[$category->id])}}">Edit</a></td>
+                    <td><a class="delete-button btn btn-outline-danger" data-title='Delete category "{{$category->name}}"?'
+                           to="{{route('categories.index')}}" href="{{route('categories.destroy',[$category->id])}}">Delete</a>
+                    </td>
                     </td>
                 </tr>
                 </tbody>
@@ -35,8 +39,12 @@
         <br>
         <div class="row justify-content-center">
                         {{$categories->links()}}
+            <div class="col-12">
+                <a class="btn btn-primary" href="{{route('categories.create')}}">Create category</a>
+            </div>
         </div>
     @endif
+
 @endsection
 
 

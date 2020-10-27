@@ -11,10 +11,14 @@
                 <label for="name">Name</label>
                 <input value="{{$category->name}}" type="text" class="form-control" id="name" name="name">
             </div>
+            <div class="form-group">
+                <label for="slug">Slug</label>
+                <input value="{{$category->slug}}" type="text" class="form-control" id="slug" name="slug">
+            </div>
+            <p>Select category</p>
             <select name="parent_id"
                     id="parent_id"
                     class="form-control"
-                    placeholder="Select category"
                     required>
                 @foreach($categories as $cat)
                     <option value="{{$cat->id}}" @if($category->parent_id == $cat->id) selected @endif>
@@ -24,7 +28,6 @@
             </select>
             <br>
             <button type="submit" class="btn btn-primary">Save</button>
-            <a class="btn btn-danger" href="{{route('categories.destroy',[$category->id])}}">Delete</a>
         </form>
 @endsection
 

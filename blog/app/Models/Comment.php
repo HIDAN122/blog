@@ -48,4 +48,13 @@ class Comment extends Model
     {
         return $this->hasOne(Post::class,'id','post_id');
     }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne(User::class,'id','user_id');
+    }
 }

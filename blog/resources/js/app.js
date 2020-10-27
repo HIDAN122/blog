@@ -22,7 +22,7 @@ document.querySelectorAll('.delete-button').forEach((obj) => {
                         Swal.fire('Done!', '', 'success').then(() => {
                             let to = event.target.getAttribute('to');
                             if (to) {
-                                window.location = to;
+                                window.location = to;cd
                             }
                         })
                     }

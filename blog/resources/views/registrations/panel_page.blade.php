@@ -1,5 +1,5 @@
 @extends('layouts.panel')
-@section('body_style', 'padding-top: 70px;')
+
 @section('inner')
 
     <h1>Dashboard</h1>

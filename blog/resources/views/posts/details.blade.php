@@ -20,13 +20,16 @@
                     <h3>Comments</h3>
                 </div>
                 @foreach($post->comments as $comment)
-                    <ul class="list-unstyled">
+                    <ul style="background-color: #eceeef" class="list-unstyled">
                         <li class="media my-4">
                             <img style="height:64px;width:64px" src="/images/1.png" class="mr-3">
                             <div class="media-body">
                                 <h5 class="mt-0 mb-1">{{$comment->subject}}</h5>
                                 {{$comment->message}}
                             </div>
+                                <div class="media my-4">
+                                    {{$comment->user['first_name']}}
+                                </div>
                         </li>
                     </ul>
                 @endforeach
@@ -41,12 +44,12 @@
                     </div>
                 @endif
 
-            <form method="POST" action="{{route('comments.store')}}">
+                <form method="POST" action="{{route('comments.store')}}">
                     @csrf
-                    <input type="hidden" name="post_id" value="{{$post->id}}" />
+                    <input type="hidden" name="post_id" value="{{$post->id}}"/>
                     <div class="form-group">
                         <label for="subject">Subject</label>
-                        <input  type="text" class="form-control" id="subject" name="subject">
+                        <input type="text" class="form-control" id="subject" name="subject">
                     </div>
                     <div class="form-group">
                         <label for="message">Message</label>

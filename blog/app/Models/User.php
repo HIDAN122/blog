@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Requests\CommentRequest;
 use Illuminate\Foundation\Auth\User as Model;
 use Illuminate\Notifications\Notifiable;
 
@@ -48,6 +49,14 @@ class User extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class,'user_id','id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function comment()
+    {
+        return $this->belongsTo(Comment::class,'id','user_id');
     }
 }
 
