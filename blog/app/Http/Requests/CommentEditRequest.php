@@ -24,8 +24,8 @@ class CommentEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'subject' => 'required|max:100',
-            'message' => 'required|max:150',
+            'subject' => 'required|max:100|min:10',
+            'message' => 'required|min:10',
         ];
     }
 }

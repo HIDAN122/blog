@@ -2,6 +2,14 @@
 
 @section('body_style', 'padding-top: 59px;')
 @section('inner')
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">x</span>
+            </button>
+            {{session('success')}}
+        </div>
+    @endif
     <table class="table table-hover">
         <thead>
         <tr>

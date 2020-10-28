@@ -61,7 +61,7 @@ class PostController extends Controller
 
         if ($post) {
             return redirect()->route('posts.index')
-                ->with('Post create successfully');
+                ->with(['success' => 'Post create successfully']);
         } else {
             return back()->with('Error create')
                 ->withInput();

@@ -89,7 +89,8 @@ class CommentController extends Controller
         if ($user) {
             if ($comment->update($request->validated())) {
                 return redirect()
-                    ->route('comments.index');
+                    ->route('comments.index')
+                    ->with(['success' => 'Comment update successful']);
             }
         }
     }

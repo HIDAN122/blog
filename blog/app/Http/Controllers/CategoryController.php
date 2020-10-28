@@ -60,7 +60,7 @@ class   CategoryController extends Controller
 
         if ($category) {
             return redirect()->route('categories.index')
-                ->with('Category create successfully');
+                ->with(['success' => 'Category create successfully']);
         }
     }
 
@@ -85,10 +85,12 @@ class   CategoryController extends Controller
      */
     public function update(Category $category,CategoryRequest $request)
     {
-        if($category->update($request->validated()))
-        return redirect()
-            ->route('categories.index')
-            ->with(['success' => 'Успішно збережено']);
+        if($category->update($request->validated())) {
+            return redirect()
+                ->route('categories.index')
+                ->with(['success' => 'Save success!']);
+        }
+        return back()->with('error','Error!');
     }
 
     /**

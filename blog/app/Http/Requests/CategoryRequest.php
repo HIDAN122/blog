@@ -25,8 +25,8 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:20',
-            'slug' => 'required|max:20',
+            'name' => 'required|max:20|min:4',
+            'slug' => 'required|max:20|min:4',
             'parent_id' => [
                 function ($attribute, $value, $fail) {
                     if ($value != 0 && !Category::find($value)) {

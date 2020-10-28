@@ -10,6 +10,20 @@
                     Success registration! <a href="{{route('authenticate.form')}}">Log in</a>
                 </div>
             @endif
+
+                @if($errors->any())
+                    <div class="row justify-content-center">
+                        <div class="col-md-11">
+                            <div class="alert alert-danger" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">x</span>
+                                </button>
+                                {{$errors->first()}}
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
             <div class="row row-offcanvas row-offcanvas-right">
                 <div class="col-12 col-md-9">
                     <div class="col-md-6">
